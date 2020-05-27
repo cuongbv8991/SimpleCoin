@@ -5,8 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.zxing.integration.android.IntentIntegrator
 import com.hcmus.simplecoin.R
 import com.hcmus.simplecoin.data.model.Balance
+import com.hcmus.simplecoin.receivecoin.ReceiveCoinActivity
 import com.hcmus.simplecoin.utils.CoinManager
 import com.hcmus.simplecoin.utils.showShortToast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,9 +21,20 @@ class BalanceActivity : AppCompatActivity(), BalanceView {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initView()
+        initListener()
+    }
+
+    private fun initView() {
         balancePresenter.attachView(this)
         CoinManager.pubKeyHash?.let {
             balancePresenter.getBalance(it)
+        }
+    }
+
+    private fun initListener() {
+        btnReceive.setOnClickListener {
+            startActivity(ReceiveCoinActivity.intentFor(this))
         }
     }
 
