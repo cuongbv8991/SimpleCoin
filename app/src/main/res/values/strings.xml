@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">SimpleCoin</string>
+    <string name="create_wallet">Create wallet</string>
+    <string name="no_network_connection">No network connection</string>
+    <string name="coin">coin</string>
+    <string name="send">Send</string>
+    <string name="receive">Receive</string>
+    <string name="history">History</string>
 </resources>
