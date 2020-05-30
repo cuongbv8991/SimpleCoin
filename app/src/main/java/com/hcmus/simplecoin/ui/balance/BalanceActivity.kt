@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
 import com.hcmus.simplecoin.R
 import com.hcmus.simplecoin.data.model.Balance
+import com.hcmus.simplecoin.ui.history.HistoryActivity
 import com.hcmus.simplecoin.ui.receivecoin.ReceiveCoinActivity
 import com.hcmus.simplecoin.ui.sendcoin.SendCoinActivity
 import com.hcmus.simplecoin.utils.CoinManager
@@ -52,6 +53,10 @@ class BalanceActivity : AppCompatActivity(), BalanceView {
             integrator.setBarcodeImageEnabled(true)
             integrator.setOrientationLocked(false)
             integrator.initiateScan()
+        }
+
+        btnHistory.setOnClickListener {
+            startActivity(HistoryActivity.intentFor(this))
         }
     }
 

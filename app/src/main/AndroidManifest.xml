@@ -18,17 +18,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.hcmus.simplecoin.ui.sendcoin.SendCoinActivity" />
-        <activity android:name="com.hcmus.simplecoin.ui.receivecoin.ReceiveCoinActivity" />
-        <activity android:name="com.hcmus.simplecoin.ui.createwallet.CreateWalletActivity" />
-        <activity android:name="com.hcmus.simplecoin.ui.splash.SplashActivity">
+        <activity android:name=".ui.history.HistoryActivity"></activity>
+        <activity android:name=".ui.sendcoin.SendCoinActivity" />
+        <activity android:name=".ui.receivecoin.ReceiveCoinActivity" />
+        <activity android:name=".ui.createwallet.CreateWalletActivity" />
+        <activity android:name=".ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.hcmus.simplecoin.ui.balance.BalanceActivity" />
+        <activity android:name=".ui.balance.BalanceActivity" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="portrait"

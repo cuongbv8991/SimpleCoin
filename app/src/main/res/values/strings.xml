@@ -11,4 +11,7 @@
     <string name="amount">Amount</string>
     <string name="message">Message</string>
     <string name="transaction_success">Transaction success</string>
+    <string name="sender">Sender</string>
+    <string name="me">Me</string>
+    <string name="no_transaction">No Transaction</string>
 </resources>

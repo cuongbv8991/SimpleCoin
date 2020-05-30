@@ -16,4 +16,7 @@ interface SCService {
 
     @POST("transaction")
     fun transaction(@Body sendCoinParams: SendCoinParams): Observable<ResponseWithoutData>
+
+    @GET("transactions")
+    fun getTransaction(@Query("id") id: String): Observable<Response<List<Transaction>>>
 }
