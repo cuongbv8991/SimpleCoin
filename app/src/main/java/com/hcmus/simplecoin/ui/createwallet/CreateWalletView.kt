@@ -1,4 +1,4 @@
-package com.hcmus.simplecoin.createwallet
+package com.hcmus.simplecoin.ui.createwallet
 
 import com.hcmus.simplecoin.data.model.Coin
 

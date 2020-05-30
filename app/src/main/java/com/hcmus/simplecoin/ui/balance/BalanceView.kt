@@ -1,7 +1,6 @@
-package com.hcmus.simplecoin.main
+package com.hcmus.simplecoin.ui.balance
 
 import com.hcmus.simplecoin.data.model.Balance
-import com.hcmus.simplecoin.data.model.Coin
 
 interface BalanceView {
     fun showNoNetworkConnection()

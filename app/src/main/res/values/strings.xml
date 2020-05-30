@@ -7,4 +7,8 @@
     <string name="receive">Receive</string>
     <string name="history">History</string>
     <string name="describe_receive_money">My public address to receive funds</string>
+    <string name="receiver">Receiver</string>
+    <string name="amount">Amount</string>
+    <string name="message">Message</string>
+    <string name="transaction_success">Transaction success</string>
 </resources>

@@ -1,7 +1,7 @@
-package com.hcmus.simplecoin.createwallet
+package com.hcmus.simplecoin.ui.balance
 
 import com.hcmus.simplecoin.BasePresenter
-import com.hcmus.simplecoin.data.model.Coin
+import com.hcmus.simplecoin.data.model.Balance
 import com.hcmus.simplecoin.data.model.Response
 import com.hcmus.simplecoin.data.service.RetrofitClient
 import com.hcmus.simplecoin.data.service.SCService
@@ -10,20 +10,21 @@ import com.hcmus.simplecoin.utils.isNetworkError
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class CreateWalletPresenter : BasePresenter<CreateWalletView>() {
+class BalancePresenter: BasePresenter<BalanceView>() {
     private val scService: SCService = RetrofitClient.scInstance.create(
         SCService::class.java
     )
 
-    fun createWallet() {
-        scService.newWallet()
+    fun getBalance(id:String){
+        scService.getBalance(id)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(object : AutoDisposeObserver<Response<Coin>>() {
-                override fun onNext(t: Response<Coin>) {
-                    if (t.code == 100) {
+            .subscribe(object : AutoDisposeObserver<Response<Balance>>() {
+                override fun onNext(t: Response<Balance>) {
+                    if(t.code==100){
                         t.data?.let {
-                            view?.onSuccess(t.data)
+                            view?.onSuccess(it)
+
                         }
                     }
                 }
@@ -33,8 +34,7 @@ class CreateWalletPresenter : BasePresenter<CreateWalletView>() {
                         view?.showNoNetworkConnection()
                     } else {
                         view?.showError(e.message)
-                    }
-                }
+                    }                }
 
             })
     }

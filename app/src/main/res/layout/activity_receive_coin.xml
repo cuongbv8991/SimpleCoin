@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".receivecoin.ReceiveCoinActivity">
+    tools:context=".ui.receivecoin.ReceiveCoinActivity">
 
     <TextView
         app:layout_constraintStart_toStartOf="parent"
@@ -23,5 +23,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="200dp"
         android:layout_height="200dp"/>
+
+    <TextView
+        android:id="@+id/tvPubKey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgBarcode"
+        android:layout_marginTop="20dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        tools:text="jdssncjdscsjnjsndjsndjsnc82ssasasasasasasasassasa3"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

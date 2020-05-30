@@ -1,4 +1,4 @@
-package com.hcmus.simplecoin.main
+package com.hcmus.simplecoin.ui.balance
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -9,7 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
 import com.hcmus.simplecoin.R
 import com.hcmus.simplecoin.data.model.Balance
-import com.hcmus.simplecoin.receivecoin.ReceiveCoinActivity
+import com.hcmus.simplecoin.ui.receivecoin.ReceiveCoinActivity
+import com.hcmus.simplecoin.ui.sendcoin.SendCoinActivity
 import com.hcmus.simplecoin.utils.CoinManager
 import com.hcmus.simplecoin.utils.showShortToast
 import kotlinx.android.synthetic.main.activity_main.*
@@ -27,11 +28,13 @@ class BalanceActivity : AppCompatActivity(), BalanceView {
         initListener()
     }
 
+    override fun onResume() {
+        super.onResume()
+        fetchBalance()
+    }
+
     private fun initView() {
         balancePresenter.attachView(this)
-        CoinManager.pubKeyHash?.let {
-            balancePresenter.getBalance(it)
-        }
     }
 
     private fun initListener() {
@@ -47,6 +50,7 @@ class BalanceActivity : AppCompatActivity(), BalanceView {
 
             integrator.setBeepEnabled(false)
             integrator.setBarcodeImageEnabled(true)
+            integrator.setOrientationLocked(false)
             integrator.initiateScan()
         }
     }
@@ -59,6 +63,9 @@ class BalanceActivity : AppCompatActivity(), BalanceView {
                 Log.d("decode_qr_code", "Cancelled")
             } else {
                 Log.d("decode_qr_code", "Scanned: " + result.contents)
+                val intent = SendCoinActivity.intentFor(this)
+                intent.putExtra(SendCoinActivity.KEY_PUB_RECEIVE, result.contents)
+                startActivity(intent)
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
@@ -83,6 +90,12 @@ class BalanceActivity : AppCompatActivity(), BalanceView {
     @SuppressLint("SetTextI18n")
     override fun onSuccess(balance: Balance) {
         tvBalance.text = balance.balance.toString() + " " + getString(R.string.coin)
+    }
+
+    private fun fetchBalance() {
+        CoinManager.pubKeyHash?.let {
+            balancePresenter.getBalance(it)
+        }
     }
 
     companion object {

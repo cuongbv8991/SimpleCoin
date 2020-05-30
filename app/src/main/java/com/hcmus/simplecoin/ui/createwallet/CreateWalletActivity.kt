@@ -1,4 +1,4 @@
-package com.hcmus.simplecoin.createwallet
+package com.hcmus.simplecoin.ui.createwallet
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.hcmus.simplecoin.R
 import com.hcmus.simplecoin.data.model.Coin
-import com.hcmus.simplecoin.main.BalanceActivity
+import com.hcmus.simplecoin.ui.balance.BalanceActivity
 import com.hcmus.simplecoin.utils.CoinManager
 import com.hcmus.simplecoin.utils.showShortToast
 import kotlinx.android.synthetic.main.activity_create_wallet.*

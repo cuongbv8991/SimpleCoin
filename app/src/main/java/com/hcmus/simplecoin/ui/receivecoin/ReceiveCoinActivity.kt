@@ -1,4 +1,4 @@
-package com.hcmus.simplecoin.receivecoin
+package com.hcmus.simplecoin.ui.receivecoin
 
 import android.content.Context
 import android.content.Intent
@@ -21,6 +21,7 @@ class ReceiveCoinActivity : AppCompatActivity() {
         val multiFormatWriter = MultiFormatWriter()
         try {
             CoinManager.pubKeyHash?.let {
+                tvPubKey.text = it
                 val bitMatrix = multiFormatWriter.encode(it, BarcodeFormat.QR_CODE, 200, 200)
                 val barcodeEncoder = BarcodeEncoder()
                 val bitmap = barcodeEncoder.createBitmap(bitMatrix)

@@ -1,4 +1,4 @@
-package com.hcmus.simplecoin.splash
+package com.hcmus.simplecoin.ui.splash
 
 import android.content.Context
 import android.content.Intent
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.hcmus.simplecoin.R
-import com.hcmus.simplecoin.createwallet.CreateWalletActivity
-import com.hcmus.simplecoin.main.BalanceActivity
+import com.hcmus.simplecoin.ui.createwallet.CreateWalletActivity
+import com.hcmus.simplecoin.ui.balance.BalanceActivity
 import com.hcmus.simplecoin.utils.CoinManager
 import kotlin.math.max
 
